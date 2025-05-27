@@ -4,91 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Full-Screen Timer Clock</title>
-    <style>
-        body, html {
-            margin: 0;
-            padding: 0;
-            width: 100%;
-            height: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-color: #282c34;
-            color: #ffffff;
-            font-family: 'Arial', sans-serif;
-            font-size: 20vw;
-            text-align: center;
-        }
-        .clock {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            width: 90%;
-            max-width: 500px;
-        }
-        .button {
-            margin: 10px;
-            padding: 15px 20px;
-            border: none;
-            border-radius: 5px;
-            background: linear-gradient(145deg, #3bafda, #1e90ff);
-            color: white;
-            font-size: 4vw;
-            cursor: pointer;
-            transition: transform 0.2s, box-shadow 0.2s;
-            outline: none;
-        }
-        .button:hover {
-            transform: scale(1.1);
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
-        }
-        .button:active {
-            transform: scale(0.9);
-        }
-        .watermark {
-            position: absolute;
-            bottom: 10px; 
-            right: 10px; 
-            font-size: 3vw; 
-            opacity: 0.5;
-            pointer-events: none;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="clock" id="clock">
         <div id="time">00:00:00</div>
         <button class="button" onclick="startTimer()">Start Timer</button>
         <button class="button" onclick="resetTimer()">Reset Timer</button>
-        <div class="watermark" id="watermark">created by Dev.abhi_</div>
+        
     </div>
+    <footer>
+        <div class="watermark">© created with by &#10084; Abhishek</div>
+    </footer>
 
-    <script>
-        let timer;
-        let seconds = 0;
-
-        function startTimer() {
-            clearInterval(timer);
-            timer = setInterval(updateClock, 1000);
-        }
-
-        function resetTimer() {
-            clearInterval(timer);
-            seconds = 0;
-            document.getElementById('time').textContent = "00:00:00";
-        }
-
-        function updateClock() {
-            seconds++;
-            let hrs = Math.floor(seconds / 3600);
-            let mins = Math.floor((seconds % 3600) / 60);
-            let secs = seconds % 60;
-            document.getElementById('time').textContent =
-                (hrs < 10 ? "0" : "") + hrs + ":" + 
-                (mins < 10 ? "0" : "") + mins + ":" + 
-                (secs < 10 ? "0" : "") + secs;
-        }
+    <script src="script.js">
+        
     </script>
 </body>
 </html>
